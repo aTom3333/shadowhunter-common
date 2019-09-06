@@ -1,8 +1,8 @@
-enum StatusType {
-    succes, failure
+export enum StatusType {
+    success, failure
 }
 
-interface JsonResponse<T> {
+export default interface JsonResponse<T> {
     status: {
         type: StatusType;
         message: string;
