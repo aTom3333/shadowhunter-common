@@ -2,10 +2,10 @@ enum StatusType {
     succes, failure
 }
 
-interface JsonResponse {
+interface JsonResponse<T> {
     status: {
         type: StatusType;
         message: string;
     };
-    content: any;
+    content: T;
 }
