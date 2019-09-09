@@ -16,5 +16,6 @@ export class Character {
     hp: number;
     //todo power
     victoryCondition: VictoryCondition;
+    //todo location
     isExtension: boolean
 }
