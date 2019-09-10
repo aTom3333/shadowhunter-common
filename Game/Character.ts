@@ -7,9 +7,13 @@ export enum Faction {
 
 export interface VictoryCondition {
     description: string;
-    isFullfilled(board: Board): boolean;
+    isFulfilled(board: Board): boolean;
 }
 
+/**
+ * Represents a Character in the Shadow Hunter game,
+ * that is information about a character that never changes
+ */
 export class Character {
     name: string;
     faction: Faction;

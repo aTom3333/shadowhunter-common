@@ -1,5 +1,9 @@
 import {Character} from "./Character";
 
+
+/**
+ * Represents the state of a character during a game as it changes
+ */
 export class CharacterState {
     id: number;
     identity: Character;
