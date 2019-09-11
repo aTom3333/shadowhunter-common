@@ -1,4 +1,5 @@
 import {Character} from "./Character";
+import {Board} from "./Board";
 
 
 /**
@@ -21,5 +22,9 @@ export class CharacterState {
         this.dead = false;
         this.revealed = false;
         this.powerUsed = false;
+    }
+
+    hasWon(board: Board): boolean {
+        return this.identity.victoryCondition.isFulfilled(board, this);
     }
 }

@@ -1,4 +1,5 @@
 import {Board} from "./Board";
+import {CharacterState} from "./CharacterState";
 
 
 export enum Faction {
@@ -7,7 +8,7 @@ export enum Faction {
 
 export interface VictoryCondition {
     description: string;
-    isFulfilled(board: Board): boolean;
+    isFulfilled(board: Board, self: CharacterState): boolean;
 }
 
 /**
