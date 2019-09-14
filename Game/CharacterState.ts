@@ -13,6 +13,7 @@ export class CharacterState {
     dead: boolean;
     revealed: boolean;
     powerUsed: boolean;
+    //todo location
 
     constructor(id: number, identity: Character) {
         this.id = id;

@@ -1,8 +1,19 @@
 import {CharacterState} from "./CharacterState";
 
 
+export enum TurnStep {
+    Start, BeforeMove, AfterMove, BeforePlaceAction, AfterPlaceAction,
+    BeforeAttack, AfterAttack, End, Other
+}
+
+export class TurnDescriptor {
+    step: TurnStep;
+    character: CharacterState;
+}
+
 export class Board {
     states: Array<CharacterState>;
+    currentTurn: TurnDescriptor;
 
     nextOf(index: number) {
         index += 1;

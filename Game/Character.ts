@@ -11,6 +11,11 @@ export interface VictoryCondition {
     isFulfilled(board: Board, self: CharacterState): boolean;
 }
 
+export interface Power {
+    description: string;
+    execute(board: Board, self: CharacterState): void;
+}
+
 /**
  * Represents a Character in the Shadow Hunter game,
  * that is information about a character that never changes
@@ -19,8 +24,7 @@ export class Character {
     name: string;
     faction: Faction;
     hp: number;
-    //todo power
+    power: Power;
     victoryCondition: VictoryCondition;
-    //todo location
     isExtension: boolean
 }
