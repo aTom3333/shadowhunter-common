@@ -25,10 +25,6 @@ export class CharacterState {
         this.powerUsed = false;
     }
 
-    hasWon(board: Board): boolean {
-        return this.identity.victoryCondition.isFulfilled(board, this);
-    }
-
     dealDamage(damage: number): number {
         // TODO test equipment
         this.lostHp += damage;
