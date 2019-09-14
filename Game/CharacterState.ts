@@ -28,4 +28,10 @@ export class CharacterState {
     hasWon(board: Board): boolean {
         return this.identity.victoryCondition.isFulfilled(board, this);
     }
+
+    dealDamage(damage: number): number {
+        // TODO test equipment
+        this.lostHp += damage;
+        return damage;
+    }
 }

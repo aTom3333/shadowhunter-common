@@ -8,12 +8,10 @@ export enum Faction {
 
 export interface VictoryCondition {
     description: string;
-    isFulfilled(board: Board, self: CharacterState): boolean;
 }
 
 export interface Power {
     description: string;
-    execute(board: Board, self: CharacterState): void;
 }
 
 /**
