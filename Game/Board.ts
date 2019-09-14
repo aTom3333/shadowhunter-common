@@ -9,11 +9,21 @@ export enum TurnStep {
 export class TurnDescriptor {
     step: TurnStep;
     character: CharacterState;
+
+    constructor(character: CharacterState, step: TurnStep) {
+        this.character = character;
+        this.step = step;
+    }
 }
 
 export class Board {
     states: Array<CharacterState>;
     currentTurn: TurnDescriptor;
+
+    constructor(characters: Array<CharacterState>) {
+        this.states = characters;
+        this.currentTurn = new TurnDescriptor(this.states[0], TurnStep.Start);
+    }
 
     nextOf(index: number) {
         index += 1;

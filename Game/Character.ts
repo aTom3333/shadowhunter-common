@@ -1,7 +1,3 @@
-import {Board} from "./Board";
-import {CharacterState} from "./CharacterState";
-
-
 export enum Faction {
     Shadow, Hunter, Neutral
 }
@@ -25,4 +21,13 @@ export class Character {
     power: Power;
     victoryCondition: VictoryCondition;
     isExtension: boolean
+
+    constructor(name: string, faction: Faction, hp: number, power: Power, victoryCondition: VictoryCondition, isExtension: boolean = false) {
+        this.name = name;
+        this.faction = faction;
+        this.hp = hp;
+        this.power = power;
+        this.victoryCondition = victoryCondition;
+        this.isExtension = isExtension;
+    }
 }
