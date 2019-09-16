@@ -7,6 +7,7 @@ export interface VictoryCondition {
 }
 
 export interface Power {
+    name: string,
     description: string;
 }
 
@@ -20,7 +21,7 @@ export class Character {
     hp: number;
     power: Power;
     victoryCondition: VictoryCondition;
-    isExtension: boolean
+    isExtension: boolean;
 
     constructor(name: string, faction: Faction, hp: number, power: Power, victoryCondition: VictoryCondition, isExtension: boolean = false) {
         this.name = name;
