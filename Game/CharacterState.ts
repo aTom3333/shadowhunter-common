@@ -4,6 +4,7 @@ import {Board} from "./Board";
 
 
 export interface Location {
+    name: string;
     description: string;
     numbers: Array<number>;
 }

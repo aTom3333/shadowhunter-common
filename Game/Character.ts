@@ -7,7 +7,7 @@ export interface VictoryCondition {
 }
 
 export interface Power {
-    name: string,
+    name: string;
     description: string;
 }
 
