@@ -2,6 +2,26 @@ import {Character} from "./Character";
 import {Board} from "./Board";
 
 
+
+export interface Location {
+    description: string;
+    numbers: Array<number>;
+}
+
+export enum CardColor {
+    White, Black, Green
+}
+
+export interface Card {
+    name: string;
+    description: string;
+    color: CardColor;
+}
+
+export interface Equipment extends Card {
+}
+
+
 /**
  * Represents the state of a character during a game as it changes
  */
@@ -13,7 +33,7 @@ export class CharacterState {
     dead: boolean;
     revealed: boolean;
     powerUsed: boolean;
-    //todo location
+    location: Location;
 
     constructor(id: number, identity: Character) {
         this.id = id;
