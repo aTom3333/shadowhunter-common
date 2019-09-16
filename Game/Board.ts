@@ -1,4 +1,4 @@
-import {CharacterState} from "./CharacterState";
+import {CharacterState, Location} from "./CharacterState";
 
 
 export enum TurnStep {
@@ -19,9 +19,11 @@ export class TurnDescriptor {
 export class Board {
     states: Array<CharacterState>;
     currentTurn: TurnDescriptor;
+    locations: Array<Location>;
 
-    constructor(characters: Array<CharacterState>) {
+    constructor(characters: Array<CharacterState>, locations: Array<Location>) {
         this.states = characters;
+        this.locations = locations;
         this.currentTurn = new TurnDescriptor(this.states[0], TurnStep.Start);
     }
 
