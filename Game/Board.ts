@@ -42,7 +42,7 @@ export class Board {
     }
 
     nextTurn() {
-        const currentIdx = this.states.findIndex(c => c.id === this.currentTurn.character.identity);
+        const currentIdx = this.states.findIndex(c => c.id === this.currentTurn.character.id);
         let nextIdx = currentIdx;
         do {
             nextIdx = this.nextOf(nextIdx);
