@@ -40,4 +40,13 @@ export class Board {
             index = this.states.length-1;
         return index;
     }
+
+    nextTurn() {
+        const currentIdx = this.states.findIndex(c => c.id === this.currentTurn.character.identity);
+        let nextIdx = currentIdx;
+        do {
+            nextIdx = this.nextOf(nextIdx);
+        } while(this.states[nextIdx].dead);
+        this.currentTurn.character = this.states[nextIdx];
+    }
 }
