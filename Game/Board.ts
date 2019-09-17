@@ -1,4 +1,4 @@
-import {CharacterState, Location} from "./CharacterState";
+import {Card, CharacterState, Location} from "./CharacterState";
 
 
 export enum TurnStep {
@@ -16,15 +16,26 @@ export class TurnDescriptor {
     }
 }
 
+export interface Deck {
+    discard: Array<Card>;
+    numberLeft: number;
+}
+
 export class Board {
     states: Array<CharacterState>;
     currentTurn: TurnDescriptor;
     locations: Array<Location>;
+    whiteDeck: Deck;
+    blackDeck: Deck;
+    greenDeck: Deck;
 
-    constructor(characters: Array<CharacterState>, locations: Array<Location>) {
+    constructor(characters: Array<CharacterState>, locations: Array<Location>, whiteDeck: Deck, blackDeck: Deck, greenDeck: Deck) {
         this.states = characters;
         this.locations = locations;
         this.currentTurn = new TurnDescriptor(this.states[0], TurnStep.Start);
+        this.whiteDeck = whiteDeck;
+        this.blackDeck = blackDeck;
+        this.greenDeck = greenDeck;
     }
 
     nextOf(index: number) {
