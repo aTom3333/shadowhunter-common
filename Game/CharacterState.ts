@@ -30,7 +30,7 @@ export class CharacterState {
     id: number;
     identity: Character;
     lostHp: number;
-    equipment: Array<any>;
+    equipment: Array<Equipment>;
     dead: boolean;
     revealed: boolean;
     powerUsed: boolean;
