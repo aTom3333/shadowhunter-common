@@ -47,7 +47,6 @@ export class CharacterState {
     }
 
     dealDamage(damage: number): number {
-        // TODO test equipment
         this.lostHp += damage;
         return damage;
     }
