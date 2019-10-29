@@ -50,6 +50,7 @@ export class CharacterState {
         this.revealed = false;
         this.powerUsed = false;
         this.pawnColor = color;
+        this.location = null;
     }
 
     dealDamage(damage: number): number {
