@@ -6,9 +6,11 @@ import {AddDices, Dice4, Dice6, SubtractDices} from "../Event/DiceResult";
 
 
 function getWrap<T>(eventName: string) {
-    return function(param: T) {
-        return [eventName, param];
+    const f = function(param: T) {
+        return param;
     };
+    (f as any).stub = eventName;
+    return f;
 }
 
 export const Update = {
