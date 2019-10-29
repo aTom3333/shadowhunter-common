@@ -23,7 +23,7 @@ export interface Equipment extends Card {
 }
 
 export enum PawnColor {
-    Black, Blue, Purple, Red, Green, White, Yellow
+    Black, Blue, Purple, Red, Green, White, Yellow, Orange
 }
 
 
