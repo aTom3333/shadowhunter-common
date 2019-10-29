@@ -1,3 +1,4 @@
+import {Board} from "../Game/Board";
 
 
 export enum RoomState {
@@ -8,4 +9,9 @@ export interface RoomSummary {
     name: string;
     state: RoomState;
     noplayers: number
+}
+
+export interface FullRoom {
+    board: Board,
+    players: Array<{id: number; name: string;}>;
 }
