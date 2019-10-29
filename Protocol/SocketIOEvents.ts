@@ -5,12 +5,12 @@ import {FullRoom, RoomSummary} from "./RoomInterface";
 import {AddDices, Dice4, Dice6, SubtractDices} from "../Event/DiceResult";
 
 
-function getWrap<T>(eventName: string) {
+function getWrap<T>(eventName: string): {(param: T):T, stub:string} {
     const f = function(param: T) {
         return param;
     };
     (f as any).stub = eventName;
-    return f;
+    return f as any;
 }
 
 export const Update = {
