@@ -25,7 +25,7 @@ export const Request = {
 };
 
 export const Response = {
-    RoomJoined: getWrap<RoomSummary>("response:roomjoined"),
+    RoomJoined: getWrap<{name: string; room: RoomSummary}>("response:roomjoined"),
     Choice: getWrap<any>("response:choice")
 };
 
