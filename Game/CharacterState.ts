@@ -22,6 +22,10 @@ export interface Card {
 export interface Equipment extends Card {
 }
 
+export enum PawnColor {
+    Black, Blue, Purple, Red, Green, White, Yellow
+}
+
 
 /**
  * Represents the state of a character during a game as it changes
@@ -35,8 +39,9 @@ export class CharacterState {
     revealed: boolean;
     powerUsed: boolean;
     location: Location;
+    pawnColor: PawnColor;
 
-    constructor(id: number, identity: Character) {
+    constructor(id: number, identity: Character, color: PawnColor) {
         this.id = id;
         this.identity = identity;
         this.lostHp = 0;
@@ -44,6 +49,7 @@ export class CharacterState {
         this.dead = false;
         this.revealed = false;
         this.powerUsed = false;
+        this.pawnColor = color;
     }
 
     dealDamage(damage: number): number {
