@@ -17,7 +17,8 @@ export const Update = {
     OwnIdentity: getWrap<CharacterState>("update:ownidentity"),
     PlayerJoined: getWrap<PlayerInterface>("update:playerjoined"),
     PlayerLeft: getWrap<PlayerInterface>("update:playerleave"), // TODO Replace by 'playerleft' when other pieces of code will use this
-    GameStarted: getWrap<FullRoom>("update:gamestarted")
+    GameStarted: getWrap<FullRoom>("update:gamestarted"),
+    Movement: getWrap<PlayerInterface>("update:movement")
 };
 
 export const Request = {
