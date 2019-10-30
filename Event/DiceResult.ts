@@ -1,13 +1,16 @@
+import {PlayerInterface} from "../Protocol/PlayerInterface";
+
 export interface DiceResult {
-    finalValue(): number
+    finalValue(): number;
+    player: PlayerInterface;
 }
 
 export interface Dice4 extends DiceResult {
-    value: number
+    value: number;
 }
 
 export interface Dice6 extends DiceResult {
-    value: number
+    value: number;
 }
 
 export interface AddDices extends DiceResult {
