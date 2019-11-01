@@ -1,4 +1,4 @@
-import {CharacterState} from "../Game/CharacterState";
+import {Card, CharacterState} from "../Game/CharacterState";
 import {PlayerInterface} from "./PlayerInterface";
 import {ChoiceInterface} from "./ChoiceInterface";
 import {FullRoom, RoomSummary} from "./RoomInterface";
@@ -18,7 +18,9 @@ export const Update = {
     PlayerJoined: getWrap<PlayerInterface>("update:playerjoined"),
     PlayerLeft: getWrap<PlayerInterface>("update:playerleave"), // TODO Replace by 'playerleft' when other pieces of code will use this
     GameStarted: getWrap<FullRoom>("update:gamestarted"),
-    Movement: getWrap<PlayerInterface>("update:movement")
+    Movement: getWrap<PlayerInterface>("update:movement"),
+    TurnStart: getWrap<string>('update:turnstart'),
+    DrawCard: getWrap<{player: PlayerInterface, card: Card}>('update:drawcard')
 };
 
 export const Request = {
