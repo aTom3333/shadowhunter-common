@@ -1,12 +1,12 @@
 
 
 export function cloneAs<T, U>(from: U, prototype: Function): T {
-    let clone: any = {};
+    let cloned: any = {};
     for(const key in from) {
         if(from.hasOwnProperty(key))
-            clone[key] = clone(from[key]);
+            cloned[key] = clone(from[key]);
     }
-    return Object.setPrototypeOf(clone, prototype);
+    return Object.setPrototypeOf(cloned, prototype);
 }
 
 function cloneArray<T>(arr: Array<T>): Array<T> {
