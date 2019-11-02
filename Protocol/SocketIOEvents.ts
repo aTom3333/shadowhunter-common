@@ -1,4 +1,4 @@
-import {Card, CharacterState} from "../Game/CharacterState";
+import {Card, CharacterState, Equipment} from "../Game/CharacterState";
 import {PlayerInterface} from "./PlayerInterface";
 import {ChoiceInterface} from "./ChoiceInterface";
 import {FullRoom, RoomSummary} from "./RoomInterface";
@@ -20,7 +20,10 @@ export const Update = {
     GameStarted: getWrap<FullRoom>("update:gamestarted"),
     Movement: getWrap<PlayerInterface>("update:movement"),
     TurnStart: getWrap<string>('update:turnstart'),
-    DrawCard: getWrap<{player: PlayerInterface, card: Card}>('update:drawcard')
+    DrawCard: getWrap<{player: PlayerInterface, card: Card}>('update:drawcard'),
+    DiscardCard: getWrap<Card>('update:discardcard'),
+    Equip: getWrap<{player: PlayerInterface, equipment: Equipment}>("update:equip"),
+    Desequip: getWrap<{player: PlayerInterface, equipment: Equipment>('update:desequip')
 };
 
 export const Request = {
