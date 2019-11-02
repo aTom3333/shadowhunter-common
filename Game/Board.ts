@@ -1,4 +1,5 @@
 import {Card, CharacterState, Location} from "./CharacterState";
+import {clone} from "../Utility/CloneAs";
 
 
 export enum TurnStep {
@@ -19,6 +20,7 @@ export class TurnDescriptor {
 export interface Deck {
     discard: Array<Card>;
     numberLeft: number;
+    serialize(): Deck;
 }
 
 export class Board {
@@ -59,5 +61,19 @@ export class Board {
             nextIdx = this.nextOf(nextIdx);
         } while(this.states[nextIdx].dead);
         this.currentTurn.character = this.states[nextIdx];
+    }
+
+    serialize(isGameOver: boolean): Board {
+        let temp: Board = clone(this);
+        temp.greenDeck = this.greenDeck.serialize();
+        temp.blackDeck = this.blackDeck.serialize();
+        temp.whiteDeck = this.whiteDeck.serialize();
+        if(!isGameOver) {
+            for(let i = 0; i < this.states.length; i++) {
+                if(!this.states[i].revealed)
+                    temp.states[i].identity = null;
+            }
+        }
+        return temp;
     }
 }
