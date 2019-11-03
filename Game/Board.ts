@@ -25,7 +25,7 @@ export interface Deck {
 
 export class Board {
     states: Array<CharacterState>;
-    currentTurn: TurnDescriptor;
+    currentCharacterId: number;
     locations: Array<Location>;
     whiteDeck: Deck;
     blackDeck: Deck;
@@ -34,7 +34,7 @@ export class Board {
     constructor(characters: Array<CharacterState>, locations: Array<Location>, whiteDeck: Deck, blackDeck: Deck, greenDeck: Deck) {
         this.states = characters;
         this.locations = locations;
-        this.currentTurn = new TurnDescriptor(this.states[0], TurnStep.Start);
+        this.currentCharacterId = this.states[0].id;
         this.whiteDeck = whiteDeck;
         this.blackDeck = blackDeck;
         this.greenDeck = greenDeck;
@@ -55,12 +55,12 @@ export class Board {
     }
 
     nextTurn() {
-        const currentIdx = this.states.findIndex(c => c.id === this.currentTurn.character.id);
+        const currentIdx = this.states.findIndex(c => c.id === this.currentCharacterId);
         let nextIdx = currentIdx;
         do {
             nextIdx = this.nextOf(nextIdx);
         } while(this.states[nextIdx].dead);
-        this.currentTurn.character = this.states[nextIdx];
+        this.currentCharacterId = this.states[nextIdx].id;
     }
 
     serialize(isGameOver: boolean): Board {
