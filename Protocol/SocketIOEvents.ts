@@ -23,7 +23,7 @@ export const Update = {
     DrawCard: getWrap<{player: PlayerInterface, card: Card}>('update:drawcard'),
     DiscardCard: getWrap<Card>('update:discardcard'),
     Equip: getWrap<{player: PlayerInterface, equipment: Equipment}>("update:equip"),
-    Desequip: getWrap<{player: PlayerInterface, equipment: Equipment>('update:desequip')
+    Desequip: getWrap<{player: PlayerInterface, equipment: Equipment}>('update:desequip'),
 };
 
 export const Request = {
@@ -40,4 +40,8 @@ export const Dice = {
     D6: getWrap<Dice6>("dice:d6"),
     Add: getWrap<AddDices>("dice:add"),
     Sub: getWrap<SubtractDices>("dice:sub"),
+};
+
+export const Debug = {
+    CheckState: getWrap<FullRoom>('debug:checkstate')
 };
