@@ -14,7 +14,7 @@ function cloneArray<T>(arr: Array<T>): Array<T> {
 }
 
 export function clone<T>(from: T): T {
-    if(typeof from !== 'object') {
+    if(typeof from !== 'object' || from === null) {
         return from;
     } else if(from instanceof Array) {
         // @ts-ignore
