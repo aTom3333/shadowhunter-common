@@ -23,6 +23,10 @@ export interface Deck {
     serialize(): Deck;
 }
 
+function as(data: object, constructor: Function) {
+    return Object.setPrototypeOf(data, constructor.prototype);
+}
+
 export class Board {
     states: Array<CharacterState>;
     currentCharacterId: number;
@@ -64,16 +68,36 @@ export class Board {
     }
 
     serialize(isGameOver: boolean): Board {
-        let temp: Board = clone(this);
-        temp.greenDeck = this.greenDeck.serialize();
-        temp.blackDeck = this.blackDeck.serialize();
-        temp.whiteDeck = this.whiteDeck.serialize();
-        if(!isGameOver) {
-            for(let i = 0; i < this.states.length; i++) {
-                if(!this.states[i].revealed)
-                    temp.states[i].identity = null;
-            }
-        }
-        return temp;
+        return as({
+            states: this.states.map(c => {
+                return as({
+                    identity: isGameOver || c.revealed ? c.identity : null,
+                    equipment: c.equipment.map(e => {
+                        return {
+                            name: e.name,
+                            description: e.description,
+                            color: e.color
+                        };
+                    }),
+                    ...c
+                }, CharacterState)
+            }),
+            currentCharacterId: this.currentCharacterId,
+            locations: this.locations,
+            whiteDeck: this.whiteDeck.serialize(),
+            greenDeck: this.greenDeck.serialize(),
+            blackDeck: this.blackDeck.serialize()
+        }, Board);
+        // let temp: Board = clone(this);
+        // temp.greenDeck = this.greenDeck.serialize();
+        // temp.blackDeck = this.blackDeck.serialize();
+        // temp.whiteDeck = this.whiteDeck.serialize();
+        // if(!isGameOver) {
+        //     for(let i = 0; i < this.states.length; i++) {
+        //         if(!this.states[i].revealed)
+        //             temp.states[i].identity = null;
+        //     }
+        // }
+        // return temp;
     }
 }
