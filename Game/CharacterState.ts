@@ -40,6 +40,7 @@ export class CharacterState {
     powerUsed: boolean;
     location: Location;
     pawnColor: PawnColor;
+    killerId: number;
 
     constructor(id: number, identity: Character, color: PawnColor) {
         this.id = id;
@@ -51,6 +52,7 @@ export class CharacterState {
         this.powerUsed = false;
         this.pawnColor = color;
         this.location = null;
+        this.killerId = null;
     }
 
     dealDamage(damage: number): number {
