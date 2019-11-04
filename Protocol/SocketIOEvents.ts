@@ -24,6 +24,7 @@ export const Update = {
     DiscardCard: getWrap<Card>('update:discardcard'),
     Equip: getWrap<{player: PlayerInterface, equipment: Equipment}>("update:equip"),
     Desequip: getWrap<{player: PlayerInterface, equipment: Equipment}>('update:desequip'),
+    Attack: getWrap<{attacker: PlayerInterface, target: PlayerInterface, type: string}>('update:attack')
 };
 
 export const Request = {
