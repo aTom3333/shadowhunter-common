@@ -25,7 +25,9 @@ export const Update = {
     Equip: getWrap<{player: PlayerInterface, equipment: Equipment}>("update:equip"),
     Desequip: getWrap<{player: PlayerInterface, equipment: Equipment}>('update:desequip'),
     Attack: getWrap<{attacker: PlayerInterface, target: PlayerInterface, type: string}>('update:attack'),
-    ChangeHP: getWrap<{player: PlayerInterface, type: string, amount: number}>('update:changehp')
+    ChangeHP: getWrap<{player: PlayerInterface, type: string, amount: number}>('update:changehp'),
+    Dead: getWrap<{target: PlayerInterface, killer: PlayerInterface}>('update:dead'),
+    UsePower: getWrap<PlayerInterface>('update:usepower')
 };
 
 export const Request = {
