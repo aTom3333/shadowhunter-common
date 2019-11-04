@@ -79,7 +79,13 @@ export class Board {
                             color: e.color
                         };
                     }),
-                    ...c
+                    id: c.id,
+                    lostHp: c.lostHp,
+                    dead: c.dead,
+                    revealed: c.revealed,
+                    powerUsed: c.powerUsed,
+                    location: c.location,
+                    pawnColor: c.pawnColor
                 }, CharacterState)
             }),
             currentCharacterId: this.currentCharacterId,
