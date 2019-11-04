@@ -5,6 +5,8 @@ export function getDifference(first: any, second: any): Array<string>|null {
         return [];
     switch (typeof first) {
         case 'object':
+            if(first === null || second === null)
+                return first === second ? null : [];
             if(first instanceof Array) {
                 if(second instanceof Array) {
                     if(first.length !== second.length)
