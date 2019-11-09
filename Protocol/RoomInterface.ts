@@ -14,4 +14,5 @@ export interface RoomSummary {
 export interface FullRoom {
     board: Board,
     players: Array<{id: number; name: string;}>;
+    winners: Array<number>;
 }
