@@ -29,7 +29,8 @@ export const Update = {
     Dead: getWrap<{target: PlayerInterface, killer: PlayerInterface}>('update:dead'),
     UsePower: getWrap<PlayerInterface>('update:usepower'),
     GameOver: getWrap<FullRoom>('update:gameover'),
-    Reveal: getWrap<PlayerInterface>('update:revealplayer')
+    Reveal: getWrap<PlayerInterface>('update:revealplayer'),
+    Message: getWrap<Array<any>>('update:message')
 };
 
 export const Request = {
