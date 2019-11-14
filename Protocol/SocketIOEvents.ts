@@ -34,7 +34,8 @@ export const Update = {
 };
 
 export const Request = {
-    Choice: getWrap<ChoiceInterface>("request:choice")
+    Choice: getWrap<ChoiceInterface>("request:choice"),
+    Reveal: getWrap<PlayerInterface>('request:reveal')
 };
 
 export const Response = {
