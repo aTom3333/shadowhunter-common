@@ -26,6 +26,7 @@ export interface Deck {
 export interface DeathRecord {
     deadId: number;
     killerId: number;
+    reason: string;
 }
 
 function as(data: object, constructor: Function) {
