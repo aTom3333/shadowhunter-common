@@ -23,6 +23,11 @@ export interface Deck {
     serialize(): Deck;
 }
 
+export interface DeathRecord {
+    deadId: number;
+    killerId: number;
+}
+
 function as(data: object, constructor: Function) {
     return Object.setPrototypeOf(data, constructor.prototype);
 }
@@ -34,6 +39,7 @@ export class Board {
     whiteDeck: Deck;
     blackDeck: Deck;
     greenDeck: Deck;
+    deaths: Array<DeathRecord>;
 
     constructor(characters: Array<CharacterState>, locations: Array<Location>, whiteDeck: Deck, blackDeck: Deck, greenDeck: Deck) {
         this.states = characters;
