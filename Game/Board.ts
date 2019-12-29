@@ -49,6 +49,7 @@ export class Board {
         this.whiteDeck = whiteDeck;
         this.blackDeck = blackDeck;
         this.greenDeck = greenDeck;
+        this.deaths = [];
     }
 
     nextOf(index: number) {
