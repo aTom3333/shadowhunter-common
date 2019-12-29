@@ -100,7 +100,8 @@ export class Board {
             locations: this.locations,
             whiteDeck: this.whiteDeck.serialize(),
             greenDeck: this.greenDeck.serialize(),
-            blackDeck: this.blackDeck.serialize()
+            blackDeck: this.blackDeck.serialize(),
+            deaths: this.deaths
         }, Board);
         // let temp: Board = clone(this);
         // temp.greenDeck = this.greenDeck.serialize();
