@@ -30,7 +30,9 @@ export const Update = {
     UsePower: getWrap<PlayerInterface>('update:usepower'),
     GameOver: getWrap<FullRoom>('update:gameover'),
     Reveal: getWrap<PlayerInterface>('update:revealplayer'),
-    Message: getWrap<{ msg: string, params: Array<any>}>('update:message')
+    Message: getWrap<{ msg: string, params: Array<any>}>('update:message'),
+    ShowCard: getWrap<Card>('update:showcard'),
+    HideCard: getWrap<void>('update:hidecard')
 };
 
 export const Request = {
